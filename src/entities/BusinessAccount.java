@@ -1,6 +1,8 @@
 package entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class BusinessAccount extends Account {
 
@@ -28,19 +30,27 @@ public class BusinessAccount extends Account {
     //METODOS
     public void loan() {
         balance += balance * 0.5;
+
+        Calendar date = Calendar.getInstance();
+        checkDate(date);
     }
 
-    /*public Calendar checkDate() {
-        Calendar calendar = Calendar.getInstance();
+    public Calendar checkDate(Calendar data) {
+        System.out.println("Loan pay day");
 
-        if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
-            calendar.add(Calendar.DATE, 1);
-            return calendar;
-        } else if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-            calendar.add(Calendar.DATE, 2);
-            return calendar;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        data.add(Calendar.DATE, 31);
+
+        if (data.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+            data.add(Calendar.DATE, 1);
+            System.out.println(sdf.format(data.getTime()));
+        } else if (data.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
+            data.add(Calendar.DATE, 2);
+            System.out.println(sdf.format(data.getTime()));
+        } else {
+            System.out.println(sdf.format(data.getTime()));
         }
-        System.out.println("DIA DA SEMANA");
-        return calendar;
-    }*/
+        return data;
+    }
 }
+
