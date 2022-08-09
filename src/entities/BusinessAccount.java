@@ -13,7 +13,7 @@ public class BusinessAccount extends Account {
         super();
     }
 
-    public BusinessAccount(int number, String name, String email, Calendar birth, double initialBalance, int idCompany) {
+    public BusinessAccount(int number, String name, String email, Date birth, double initialBalance, int idCompany) {
         super(number, name, email, birth, initialBalance);
         this.idCompany = idCompany;
     }

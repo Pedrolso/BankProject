@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class Account {
 
@@ -8,14 +9,14 @@ public class Account {
     protected int number;
     protected String name;
     protected String email;
-    protected Calendar birth;
+    protected Date birth;
     protected double balance;
 
     //CONSTRUTOR
     public Account() {
     }
 
-    public Account(int number, String name, String email, Calendar birth, double initialBalance) {
+    public Account(int number, String name, String email, Date birth, double initialBalance) {
         this.number = number;
         this.name = name;
         this.email = email;
@@ -44,7 +45,7 @@ public class Account {
         this.email = email;
     }
 
-    public Calendar getBirth() {
+    public Date getBirth() {
         return birth;
     }
 
